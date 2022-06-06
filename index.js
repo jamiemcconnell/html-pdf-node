@@ -7,7 +7,7 @@ async function generatePdf(file, options, callback) {
   // we are using headless mode
   let args = [
     '--no-sandbox',
-    '--disable-setuid-sandbox',
+    '--disable-setuid-sandbox'
   ];
   if(options.args) {
     args = options.args;
@@ -15,6 +15,7 @@ async function generatePdf(file, options, callback) {
   }
 
   const browser = await puppeteer.launch({
+    executablePath: '/usr/bin/chromium-browser',
     args: args
   });
   const page = await browser.newPage();
